@@ -17,7 +17,7 @@ function App() {
       <div className="content">
         {/* <Home /> */}
         <BlogList blogs={blogs} title="All blogs"/>
-        <BlogList blogs={blogs} title="All blogs"/>
+        <BlogList blogs={blogs.filter((blog)=> blog.author == 'mario')} title="Mario's Blogs"/>
       </div>
     </div>
   )
