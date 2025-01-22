@@ -15,15 +15,20 @@ const Home = () => {
     setBlogs(newBlogs);
   }
 
+  // useEffect(()=> {
+  //   console.log("useeffect ran")
+  //   // go to api and fetch data to display
+  // }, [])
+
   useEffect(() => {
-    console.log('use effect ran');
-    console.log(blogs);
+    console.log('new name is:', name);
   }, [name])
   
   return (
     <div className="home">
       <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
       <button onClick={() => setName('luigi')}>change name</button>
+      <input type="text" onChange={(e)=>(setName(e.target.value))}/>
     </div>
   );
 }
