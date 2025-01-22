@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 //arrow functions
-const BlogList = ({blogs, title, handleDelete, handleAuthor}) => {
+const BlogList = ({blogs, title, handleDelete}) => {
 
     function test() {
         console.log('sdsf')
@@ -14,7 +14,6 @@ const BlogList = ({blogs, title, handleDelete, handleAuthor}) => {
                     <h2>{blog.title}</h2>
                     <p>Written by {blog.author}</p>
                     <button onClick={() => handleDelete(blog.id)}>Delete blog</button>
-                    <button onClick={() => handleAuthor(blog.author)}>Display Author</button>
                 </div>
             ))}
         </div>

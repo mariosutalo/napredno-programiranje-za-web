@@ -24,8 +24,7 @@ function App() {
     <div className="App">
       <Navbar />
       <div className="content">
-        {/* <Home /> */}
-        <BlogList blogs={blogs} title="All blogs" handleDelete={handleDelete} handleAuthor={handleAuthor}/>
+        <Home />
       </div>
     </div>
   )
