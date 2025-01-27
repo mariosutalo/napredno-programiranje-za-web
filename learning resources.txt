@@ -1,1 +1,4 @@
 destructure javascript operator: https://www.w3schools.com/js/js_destructuring.asp
+short circuit operator: https://www.geeksforgeeks.org/javascript-short-circuiting/
+short circuit operator: https://www.educative.io/answers/what-are-javascript-short-circuiting-operators
+promises in javascript: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Async_JS/Promises
