@@ -3,34 +3,37 @@ import BlogList from "./BlogList";
 
 const Home = () => {
   const [blogs, setBlogs] = useState(null)
-
-  const [name, setName] = useState('mario');
-
-  const handleDelete = (id) => {
-    const newBlogs = blogs.filter(blog => blog.id !== id);
-    setBlogs(newBlogs);
-  }
+  const [isPending, setIsPending] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    // go to api and fetch data to display
-    fetch('http://localhost:8000/blogs')
-      .then((res) => (res.json()))
-      .then((data) => {
-        setBlogs(data)
-        console.log(data)
-      })
-      console.log("hello")
+    setTimeout(() => {
+      // go to api and fetch data to display
+      fetch('http://localhost:8000/blogs')
+        .then(res => {
+          if(!res.ok) {
+            throw Error('could not fetch data for that resource')
+          }
+          return res.json()
+        })
+        .then((data) => {
+          setIsPending(false)
+          setBlogs(data)
+          setError(null)
+          console.log(data)
+        })
+        .catch(err => {
+          setError(err.message)
+          setIsPending(false)
+        })
+    }, 1000);
   }, [])
-
-  useEffect(() => {
-    console.log('new name is:', name);
-  }, [name])
 
   return (
     <div className="home">
-      {blogs && <BlogList blogs={blogs} title="All Blogs"/>}
-      <button onClick={() => setName('luigi')}>change name</button>
-      <input type="text" onChange={(e) => (setName(e.target.value))} />
+      {error && <div>error occured!</div>}
+      {isPending && <div>Loading...</div>}
+      {blogs && <BlogList blogs={blogs} title="All Blogs" />}
     </div>
   );
 }
