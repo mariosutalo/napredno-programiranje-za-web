@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react"
 
-const useFetch = (url) => {
+const useFetch = (url, isLocalServer = true) => {
     const [data, setData] = useState(null)
     const [isPending, setIsPending] = useState(true)
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        setTimeout(() => {
-            // go to api and fetch data to display
+        function fetchData() {
             fetch(url)
                 .then(res => {
                     if (!res.ok) {
@@ -25,7 +24,16 @@ const useFetch = (url) => {
                     setError(err.message)
                     setIsPending(false)
                 })
-        }, 1000);
+        }
+
+        if (isLocalServer) {
+            setTimeout(() => {
+                // go to api and fetch data to display
+                fetchData()
+            }, 1000);
+        } else {
+            fetchData()
+        }
     }, [])
 
     return { data, isPending, error }

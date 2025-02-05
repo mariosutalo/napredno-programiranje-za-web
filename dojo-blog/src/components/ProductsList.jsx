@@ -1,14 +1,18 @@
 import useFetch from "../hooks/useFetch"
+import Product from "./Product"
 
 const ProductsList = () => {
-
-    const { data: products, isPending, error } = useFetch('https://fakestoreapi.com/products')
+    const { data: products, isPending, error } = useFetch('https://fakestoreapi.com/products', false)
 
     return (
-        <div className="home">
+        <div className="home ">
             {error && <div>error occured!</div>}
             {isPending && <div>Loading...</div>}
-            {products && <p>show products, to do..</p>}
+            <div className="products-grid-div">
+                {products && products.map((product) => (
+                    <Product product={product} />
+                ))}
+            </div>
         </div>
     )
 }

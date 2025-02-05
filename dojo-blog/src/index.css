@@ -39,3 +39,10 @@
   margin: 40px auto;
   padding: 20px;
 }
+
+.products-grid-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+}
