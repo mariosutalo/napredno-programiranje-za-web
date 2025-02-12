@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Home from './Home'
 import BlogList from './BlogList'
 import ProductsList from './components/ProductsList'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
 
@@ -17,18 +18,23 @@ function App() {
     setblogs(newBlogs)
   }
 
-  function handleAuthor (author) {
+  function handleAuthor(author) {
     console.log(author)
   }
 
   return (
-    <div className="App">
-      <Navbar />
-      <div className="content">
-        {/* <Home /> */}
-        <ProductsList/>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className="content">
+          <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   )
 }
 
