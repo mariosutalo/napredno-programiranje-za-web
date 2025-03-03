@@ -6,8 +6,11 @@ const useFetch = (url, isLocalServer = true) => {
     const [error, setError] = useState(null)
 
     useEffect(() => {
+
+        const abortController = new AbortController()
+
         function fetchData() {
-            fetch(url)
+            fetch(url, { signal: abortController.signal })
                 .then(res => {
                     if (!res.ok) {
                         throw Error('could not fetch data for that resource')
@@ -21,8 +24,12 @@ const useFetch = (url, isLocalServer = true) => {
                     console.log(data)
                 })
                 .catch(err => {
-                    setError(err.message)
-                    setIsPending(false)
+                    if (err.name === "AbortError") {
+                        console.log('Request aborted')
+                    } else {
+                        setError(err.message)
+                        setIsPending(false)
+                    }
                 })
         }
 
@@ -34,6 +41,8 @@ const useFetch = (url, isLocalServer = true) => {
         } else {
             fetchData()
         }
+
+        return () => { abortController.abort() }
     }, [])
 
     return { data, isPending, error }
