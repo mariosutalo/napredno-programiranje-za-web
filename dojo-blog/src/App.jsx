@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import Navbar from './Navbar'
-import Home from './Home'
-import BlogList from './BlogList'
-import ProductsList from './components/ProductsList'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Create from './components/Create'
+import BlogDetails from './components/BlogDetails'
 
 function App() {
 
@@ -19,6 +18,9 @@ function App() {
             </Route>
             <Route exact path="/create">
               <Create />
+            </Route>
+            <Route exact path="/blogs/:id">
+              <BlogDetails />
             </Route>
           </Switch>
         </div>
