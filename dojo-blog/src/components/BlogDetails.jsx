@@ -1,10 +1,19 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import useFetch from '../hooks/useFetch'
 
 const BlogDetails = () => {
     const { id } = useParams()
     const { data: blog, isPending, error } = useFetch(`http://localhost:8000/blogs/${id}`)
+    const history = useHistory()
+
+    const deletePost = () => {
+        fetch('http://localhost:8000/blogs/'+ blog.id, {
+            method: 'DELETE',
+        }).then(()=> {
+            history.push('')
+        })
+    }
 
     return (
         <div>
@@ -16,6 +25,7 @@ const BlogDetails = () => {
                     <h1>{blog.title}</h1>
                     <h2>{blog.author}</h2>
                     <p>{blog.body}</p>
+                    <button onClick={deletePost}>Delete</button>
                 </article>
             }
         </div>
