@@ -1,0 +1,9 @@
+.menuLink {
+    color: black;
+}
+
+.headerNav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
