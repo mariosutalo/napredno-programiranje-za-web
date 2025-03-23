@@ -1,5 +1,5 @@
 .menuLink {
-    color: black;
+    color: var(--color1);
 }
 
 .headerNav {
