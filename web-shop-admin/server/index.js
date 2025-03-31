@@ -8,6 +8,8 @@ const PORT = 3000;
 
 // Middleware to parse JSON requests
 app.use(express.json());
+
+// app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: 'http://localhost:5173', credentials: true }))
 
 // Create the connection to database
