@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import useFetch from '../../hooks/useFetch'
 import ProductsList from '../../components/productsList/productsList'
 import styles from './Products.module.css'
@@ -6,24 +6,26 @@ import styles from './Products.module.css'
 const Products = () => {
 
   const [productName, setProductName] = useState('')
+  const inputRef = useRef()
   const { data, error, isPending } = useFetch(`http://localhost:3000/products/?product_name=${productName}`)
 
-  function onChangeName(e) {
-    console.log('Search product name is:', e.target.value)
-    setProductName(e.target.value)
+  function handleSearch() {
+    const productName = inputRef.current.value
+    console.log('Search product name is:', productName)
+    setProductName(productName)
   }
 
   return (
     <div>
       <div className={styles.search_div}>
-        <input className={styles.search_products_input} type="text" value={productName} onChange={onChangeName} />
-        <button className={styles.search_btn}>
+        <input className={styles.search_products_input} type="text" ref={inputRef} />
+        <button className={styles.search_btn} onClick={handleSearch}>
           <img className={styles.search_img} src='/icons/search-icon.png' alt="" />
         </button>
       </div>
       {isPending && <p>Loading...</p>}
       {error && <p>error</p>}
-      {data && <ProductsList products={data} />}
+      {data?.length > 0 && <ProductsList products={data} />}
     </div>
   )
 }

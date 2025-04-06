@@ -33,12 +33,12 @@ const useFetch = (url, isLocalServer = true) => {
                     }
                 })
         }
-
+        setIsPending(true)
         if (isLocalServer) {
             setTimeout(() => {
                 // go to api and fetch data to display
                 fetchData()
-            }, 1000);
+            }, 500);
         } else {
             fetchData()
         }
