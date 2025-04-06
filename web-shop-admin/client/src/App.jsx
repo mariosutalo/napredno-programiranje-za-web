@@ -20,7 +20,7 @@ function App() {
             <Route path={"categories"} element={<Categories />} />
             <Route path={"orders"} element={<Orders />} />
             <Route path={"users"} element={<Users />} />
-            <Route path={"editProduct/:productId"} element={<EditProduct />} />
+            <Route path={"editProduct/:id"} element={<EditProduct />} />
           </Route>
         </Routes>
       </Router>

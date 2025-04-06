@@ -15,10 +15,21 @@ router.get("/", async (req, res) => {
     }
   });
   
-  // Get a user by ID
-  router.get("/:id", (req, res) => {
-    const user = users.find(u => u.id === parseInt(req.params.id));
-    user ? res.json(user) : res.status(404).json({ message: "User not found" });
+  // Get a product by ID
+  router.get("/productDetails", async (req, res) => {
+    const productId = parseInt(req.query.id)
+    const db = req.app.locals.db
+    if (isNaN(productId)) {
+      return res.status(404).json({message: 'Product not found'})
+    }
+    const getProductDetailsQuery =`select * from products where id=?`
+    try {
+      const [result, fields] = await db.execute(getProductDetailsQuery, [productId])
+        res.json(result[0])
+    } catch (error) {
+      console.log(error)
+      res.status(500).json('product not found')
+    }
   });
   
   // Create a new user
