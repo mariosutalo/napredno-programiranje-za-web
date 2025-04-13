@@ -7,6 +7,10 @@
     font-family: Arial;
     color: var(--color1);
   }
+
+  .product_form fieldset {
+    border: none;
+  }
   
   .product_form h1 {
     margin-bottom: var(--24px);

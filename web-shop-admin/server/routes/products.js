@@ -37,4 +37,10 @@ router.get('/productDetails', async (req, res) => {
   }
 })
 
+router.put('/', (req, res) => {
+  const updatedProduct = req.body
+  console.log('updated product', updatedProduct)
+  res.json({ message: 'success', updatedProduct: 'updated product' })
+})
+
 export default router
