@@ -1,5 +1,16 @@
 import express from 'express'
 const router = express.Router()
+import { z } from 'zod'
+
+const updateProductSchema = z.object({
+  id: z.number().min(0),
+  name: z.string().min(5),
+  price: z.number().min(0),
+  stock: z.number().min(0),
+  specs: z.string().optional().default(''),
+  warranty: z.number().optional().default(24),
+  description: z.string().optional().default('')
+})
 
 // Define user routes
 // Get all products
@@ -37,10 +48,29 @@ router.get('/productDetails', async (req, res) => {
   }
 })
 
-router.put('/', (req, res) => {
-  const updatedProduct = req.body
+router.put('/', async (req, res) => {
+  const validationResult = updateProductSchema.safeParse(req.body)
+  if(!validationResult.success) {
+    return res.status(400).json({
+      error: 'Validation error',
+      issues: validationResult.error.errors
+    })
+  }
+  const updatedProduct = validationResult.data
+  // const db = req.app.locals.db
+  // const updateProductQuery = `update products
+  // set name = ?, price = ?, stock = ?, specs = ?, warranty = ?, description = ?
+  // where id = ?`
+  // const result = await db.execute(updateProductQuery, [
+  //   updatedProduct.name,
+  //   updatedProduct.price,
+  //   updatedProduct.stock,
+  //   updatedProduct.specs,
+  //   updatedProduct.warranty,
+  //   updatedProduct.description
+  // ])
   console.log('updated product', updatedProduct)
-  res.json({ message: 'success', updatedProduct: 'updated product' })
+  res.json({ message: 'success', updatedProduct: updatedProduct })
 })
 
 export default router
