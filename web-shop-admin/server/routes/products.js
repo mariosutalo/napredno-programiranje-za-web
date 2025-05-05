@@ -49,6 +49,7 @@ router.get('/productDetails', async (req, res) => {
 })
 
 router.put('/', async (req, res) => {
+  
   const validationResult = updateProductSchema.safeParse(req.body)
   if(!validationResult.success) {
     return res.status(400).json({

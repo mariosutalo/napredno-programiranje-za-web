@@ -26,6 +26,7 @@ const EditProduct = () => {
 
     async function handleSubmit(e) {
         e.preventDefault()
+        console.log(JSON.stringify(formData))
         setUpdateInProgress(true)
         try {
             const response = await fetch("http://localhost:3000/products", {
