@@ -1,0 +1,7 @@
+td, th {
+    border: 1px solid rgb(121, 121, 121);
+}
+
+#products-table {
+    margin-top: 50px;
+}
