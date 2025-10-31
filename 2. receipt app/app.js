@@ -1,4 +1,4 @@
-const receiptItems = []
+let receiptItems = []
 let receiptItemsCounter = 1
 function addItemToReceipt() {
     const itemNameInput = document.getElementById('item-name')
@@ -40,7 +40,7 @@ function addReceiptItemsToTable() {
         <td>${receiptItem.price}</td>
         <td>${receiptItem.quantity}</td>
         <td>${receiptItem.price * receiptItem.quantity}</td>
-        <td><button onclick="deleteItem(3)">Obriši</button></td>
+        <td><button onclick="deleteItem(${receiptItem.id})">Obriši</button></td>
         </tr>`
     }
     table.innerHTML = tableHtml
@@ -58,5 +58,14 @@ function calculateTotalPrice() {
 }
 
 function deleteItem(itemId) {
-
+    receiptItems = receiptItems.filter((receiptItem)=> {
+        if(receiptItem.id !== itemId) {
+            return true
+        } else {
+            return false
+        }
+    })
+    addReceiptItemsToTable()
+    calculateTotalPrice()
 }
+

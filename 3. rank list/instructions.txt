@@ -1,0 +1,2 @@
+Napraviti aplikaciju gdje korisnik unosi naziv kluba
+i broj bodova. Kada unese klub on se prikaže u tablici ispod.
