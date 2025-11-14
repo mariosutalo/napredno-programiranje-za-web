@@ -1,0 +1,5 @@
+polja: dodavanje u polje
+čitanje vrijednosti iz polja pomoću for petlje
+korištenje dom-a da biste dobili vrijednost iz inputa
+pozivanje funkcija iz html-a(onclick na dugmetu)
+bit će sličan zadatak koji smo već radili.

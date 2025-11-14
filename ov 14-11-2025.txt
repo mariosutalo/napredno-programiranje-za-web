@@ -1,0 +1,8 @@
+a. Napraviti aplikaciju u kojoj korisnik unosi dimenzije bazena.
+Html inputi su: širina bazena, duljina bazena i visina bazena.
+kada korisnik unese dimenzije bazena i prtisne gumb dodaj
+u tablici ispod inputa bazeni se dodaju u html tablicu.
+Nazivi stupaca tablice su: širina, duljina, visina, volumen bazena
+b. Volumen bazena je potrebno izračunati za svaki bazen, a formula je:
+volumen = širina(width) * visina(height) * duljina(length)
+pool
