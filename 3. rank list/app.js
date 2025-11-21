@@ -7,6 +7,7 @@ function addClubToArray() {
     const clubPointsValue = clubPointsInput.value
     const club = { name: clubNameValue, points: clubPointsValue }
     footballClubs.push(club)
+    // pri svakom unosu novog kluba, potrebno je ponovno sortirati polje
     footballClubs.sort((firstObject, secondObject) => {
         // sortira od većeg ka manjem
         return secondObject.points - firstObject.points
