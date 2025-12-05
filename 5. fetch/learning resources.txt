@@ -1,0 +1,15 @@
+syncronous vs asyncronous code:
+https://www.geeksforgeeks.org/javascript/synchronous-and-asynchronous-in-javascript/
+
+json:
+https://www.w3schools.com/js/js_json.asp
+
+ajax:
+https://ecampusontario.pressbooks.pub/webdev/chapter/ajax/
+
+web rest api:
+https://www.geeksforgeeks.org/node-js/rest-api-introduction/
+
+Fetch api - promise version:
+https://codingnomads.com/intro-javascript-fetch
+https://gomakethings.com/the-javascript-fetch-method/
