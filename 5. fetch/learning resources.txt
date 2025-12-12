@@ -13,3 +13,7 @@ https://www.geeksforgeeks.org/node-js/rest-api-introduction/
 Fetch api - promise version:
 https://codingnomads.com/intro-javascript-fetch
 https://gomakethings.com/the-javascript-fetch-method/
+
+debounce:
+https://www.geeksforgeeks.org/javascript/debouncing-in-javascript/
+https://dillionmegida.com/p/debouncing-in-javascript/

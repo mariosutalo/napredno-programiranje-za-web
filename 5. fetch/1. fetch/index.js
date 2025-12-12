@@ -1,5 +1,5 @@
 // these two function have async code execution
-function getUserById() {
+function getUserByName() {
     const userIdInput = document.getElementById('user-id')
     const userId = userIdInput.value
     fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
@@ -26,6 +26,7 @@ function getAllUsers() {
     console.log('2')
 }
 // this is example of syncronous code execution in javascript
+// program wait for code line to execute before it goes to next line
 function syncCodeExecutionExample() {
     const sum = 2 + 2
     console.log(sum)
