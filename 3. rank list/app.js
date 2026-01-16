@@ -12,10 +12,10 @@ function addClubToArray() {
         // sortira od većeg ka manjem
         return secondObject.points - firstObject.points
     })
-    displayClubsInTable()
+    displayUsersInTable()
 }
 
-function displayClubsInTable() {
+function displayUsersInTable() {
     const table = document.getElementById('clubs-table')
     const tableHeader = `
         <tr>
