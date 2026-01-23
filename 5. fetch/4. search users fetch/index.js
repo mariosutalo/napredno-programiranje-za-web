@@ -1,4 +1,4 @@
-function displayInputValue() {
+function searchUsers() {
     const statusP = document.getElementById('searh-result-p')
     statusP.innerHTML = ''
     const inputElement = document.getElementById('user-name-input')
