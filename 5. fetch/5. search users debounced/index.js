@@ -1,8 +1,13 @@
 // to do - cancel previous requests if any
 let timeoutId
+let abortController
 function searchUsers() {
     clearTimeout(timeoutId)
+
     timeoutId = setTimeout(() => {
+        if (abortController) {
+            abortController.abort()
+        }
         const statusP = document.getElementById('searh-result-p')
         statusP.innerHTML = ''
         const inputElement = document.getElementById('user-name-input')
@@ -12,7 +17,8 @@ function searchUsers() {
         }
         const table = document.getElementById('users-table')
         table.innerHTML = ''
-        fetch(`https://dummyjson.com/users/search?q=${inputValue}`)
+        abortController = new AbortController()
+        fetch(`https://dummyjson.com/users/search?q=${inputValue}`, { signal: abortController.signal })
             .then(response => {
                 if (response.ok === false) {
                     throw new Error('Error fetching user :-(')
