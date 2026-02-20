@@ -6,7 +6,14 @@
     --color4: #111813;
     --color5:#cacaca;
     --color6: #eeeeee;
-    --main-font: "Roboto"
+    --color7: #999999;
+    --main-font: "Roboto";
+    --font-size-1: calc(10rem/16);
+    --font-size-2: calc(12rem/16);
+    --font-size-3: calc(14rem/16);
+    --font-size-4: calc(18rem/16);
+    --font-size-5: calc(22rem/16);
+    --font-size-6: calc(28rem/16);
 }
 
 body {
