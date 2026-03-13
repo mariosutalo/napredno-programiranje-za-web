@@ -1,5 +1,6 @@
 import express from "express";
 import mysql from "mysql2/promise";
+import { appConstants } from "./config/appConstants.js";
 
 const dbConnection = await mysql.createConnection({
   host: "localhost",
@@ -15,16 +16,25 @@ app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
   try {
-    const [products, pFields] = await dbConnection.query(
+    let currentPage;
+    if (isNaN(Number(req.query.page))) {
+      currentPage = 1;
+    } else {
+      currentPage = Number(req.query.page);
+    }
+    const offset = (currentPage - 1) * appConstants.productsPerPage;
+    const [products] = await dbConnection.query(
       `select name, price, stock
-        from product;`,
+       from product
+       limit ${appConstants.productsPerPage} offset ${offset};`,
     );
-    const [productsCount, cFields] = await dbConnection.query(
+    const [productsCountDbResponse] = await dbConnection.query(
       `
       select count(*) as count
       from product;`,
     );
-    console.log(productsCount[0].count)
+    const productsCount = productsCountDbResponse[0].count;
+    const pagesCount = Math.ceil(productsCount / appConstants.productsPerPage);
     res.render("index", {
       pageName: "Products",
       products: products,
