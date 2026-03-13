@@ -7,3 +7,9 @@ procedura za one koji nemaju zadnju verziju projekta
 - u terminalu pokrenuti naredbu npm i
 - pokrenuti projekt:node --inspect --watch-path=./ ./index.js
 - nodemon verzija : nodemon index
+
+Async await: https://www.geeksforgeeks.org/node-js/async-await-in-node-js/
+Http vrste zahtjeva: (get, post, put...): https://www.geeksforgeeks.org/node-js/different-kinds-of-http-requests/
+Express.js request query params: https://www.geeksforgeeks.org/web-tech/express-js-req-query-property/
+Javascript moduli: https://www.geeksforgeeks.org/javascript/javascript-modules/
+
