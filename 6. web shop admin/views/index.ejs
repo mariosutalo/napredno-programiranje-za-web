@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<% locals.pageStyles.push("/styles/pages/index.css") %>
 <%- include('./shared/head.ejs') %>
 
     <body>
@@ -12,7 +13,7 @@
                                 <h1>Products</h1>
                                 <p>Manage your inventory, price and stock level</p>
                             </div>
-                            <button class="add-new-product-btn">+ Add New Product</button>
+                            <a class="add-new-product-link" href="/products/create">+ Add New Product</a>
                         </div>
                         <div class="search-products-div">
                             <input class="form-input" type="text" placeholder="Search products by name">
@@ -34,20 +35,35 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <% products.forEach(element => { %>
-                                 <tr>
-                                    <td><%= element.name %></td>
-                                    <td>category placeholder</td>
-                                    <td><%= element.stock %></td>
-                                    <td><%= element.price  %></td>
-                                    <td>in stock placeholder</td>
-                                    <td>
-                                        <a href="products/edit?id=1">Edit</a>
-                                    </td>
-                                </tr>
-                                <% }) %>
+                                <% products.forEach(element=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= element.name %>
+                                        </td>
+                                        <td>category placeholder</td>
+                                        <td>
+                                            <%= element.stock %>
+                                        </td>
+                                        <td>
+                                            <%= element.price %>
+                                        </td>
+                                        <td>in stock placeholder</td>
+                                        <td>
+                                            <a class="page-link" href="products/edit?id=1">Edit</a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
                             </tbody>
                         </table>
+                        <div class="pagination-div">
+                            <% if(locals.currentPage> 1) { %>
+                                <a class="page-link" href="?page=<%= locals.currentPage - 1 %>">Previous</a>
+                            <% } %>
+                            <span><%= locals.currentPage %> of <%= locals.pagesCount %></span>
+                            <% if(locals.currentPage < locals.pagesCount) {%>
+                                <a class="page-link" href="?page=<%= locals.currentPage + 1 %>">Next</a>
+                            <% } %>
+                        </div>
                     </div>
                 </section>
             </main>

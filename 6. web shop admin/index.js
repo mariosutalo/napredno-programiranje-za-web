@@ -14,6 +14,12 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
+// middleware
+app.use((req, res, next) => {
+  res.app.locals.pageStyles = []
+  next()
+})
+
 app.get("/", async (req, res) => {
   try {
     let currentPage;
@@ -38,6 +44,8 @@ app.get("/", async (req, res) => {
     res.render("index", {
       pageName: "Products",
       products: products,
+      currentPage: currentPage,
+      pagesCount: pagesCount
     });
   } catch (error) {
     console.log("error executing query", error);
@@ -51,4 +59,16 @@ app.get("/users", (req, res) => {
   res.render("users", { pageName: "Users" });
 });
 
+app.get("/products/create", (req, res) => {
+  res.render("createProduct");
+})
+
 app.listen(3001);
+
+const names = [];
+names.push("Mario")
+names.push("Chat GPT")
+
+names.forEach((item) => {
+  console.log(item)
+})

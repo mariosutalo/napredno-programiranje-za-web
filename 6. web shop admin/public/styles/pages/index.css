@@ -20,13 +20,14 @@
   justify-self: center;
 }
 
-.add-new-product-btn {
+.add-new-product-link {
   padding: 15px 20px;
   background-color: var(--primary);
   border: none;
   border-radius: 10px;
   color: white;
   font-family: var(--main-font);
+  text-decoration: none;
 }
 
 .search-products-div {
@@ -67,4 +68,10 @@
 
 .products-table tbody tr td {
   padding: 13px 18px;
+}
+
+.pagination-div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
