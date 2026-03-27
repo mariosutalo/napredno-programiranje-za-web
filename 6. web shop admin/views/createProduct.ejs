@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <% locals.pageStyles.push("/styles/pages/createProduct.css") %>
-<%- include('./shared/head.ejs') %>
-    <body>
-        <%- include('./shared/header.ejs') %>
-            <main>
-                <h1>Hi from create product page</h1>
-            </main>
-            <%- include('./shared/footer.ejs') %>
-    </body>
+    <%- include('./shared/head.ejs') %>
+
+        <body>
+            <%- include('./shared/header.ejs') %>
+                <main>
+                    <section>
+                        <div class="container">
+                            <h1>Create New Product</h1>
+                            <p>Create new product that will be saved to db.</p>
+                            <form method="post" class="add-product-form">
+                                <div class="form-input-div">
+                                    <label class="form-label" for="product-name">Product name</label>
+                                    <input class="form-text-input" type="text" id="product-name" name="name">
+                                </div>
+                                <div class="form-input-div">
+                                    <label class="form-label" for="category-id">Category Id</label>
+                                    <input class="form-text-input" type="number" id="category-id" name="categoryId">
+                                </div>
+                                <div class="form-input-div">
+                                    <label class="form-label" for="product-stock">Stock</label>
+                                    <input class="form-text-input" type="number" id="product-stock" name="stock">
+                                </div>
+                                <div class="form-input-div">
+                                    <label class="form-label" for="product-price">Price (€)</label>
+                                    <input class="form-text-input" type="number" id="product-price" name="price">
+                                </div>
+                                <button class="default-btn" type="submit">Add Product</button>
+                            </form>
+                        </div>
+                    </section>
+                </main>
+                <%- include('./shared/footer.ejs') %>
+        </body>
+
 </html>

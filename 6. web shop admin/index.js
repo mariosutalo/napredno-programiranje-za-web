@@ -20,6 +20,8 @@ app.use((req, res, next) => {
   next()
 })
 
+app.use(express.urlencoded({ extended: true }));
+
 app.get("/", async (req, res) => {
   try {
     let currentPage;
@@ -63,11 +65,16 @@ app.get("/products/create", (req, res) => {
   res.render("createProduct");
 })
 
+app.post("/products/create", (req, res) => {
+  res.render("createProduct");
+  const product = req.body;
+})
+
+
+
 app.listen(3001);
 
 const names = [];
-names.push("Mario")
-names.push("Chat GPT")
 
 names.forEach((item) => {
   console.log(item)
