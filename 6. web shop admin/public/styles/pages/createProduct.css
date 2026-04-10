@@ -1,35 +1,39 @@
 .container {
-    width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .add-product-form {
-    background-color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .form-input-div {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .form-label {
-    color: var(--color7);
+  color: var(--color7);
 }
 
 .form-text-input {
-    background-color: var(--color3);
-    padding: 10px 14px;
-    border-radius: 3px;
-    border: 1px solid var(--color7);
-    font-size: var(--font-size-4);
+  background-color: var(--color3);
+  padding: 10px 14px;
+  border-radius: 3px;
+  border: 1px solid var(--color7);
+  font-size: var(--font-size-4);
+}
+
+.form-text-area {
+  background-color: var(--color3);
 }
