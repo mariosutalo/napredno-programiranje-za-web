@@ -42,3 +42,23 @@ h1, h2, h3, h4, h5,h6, p {
   font-family: var(--main-font);
   text-decoration: none;
 }
+
+
+.container {
+  width: 100%;
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.center-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    gap: 10px;
+}

@@ -29,6 +29,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", indexRouter)
 app.use("/orders", orderRouter)
 app.use("/users", userRouter)
-app.use("/product", productRouter)
+app.use("/products", productRouter)
 
 app.listen(3001);
