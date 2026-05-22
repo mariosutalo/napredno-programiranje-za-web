@@ -2,6 +2,7 @@ import express from 'express'
 // ./ - trenutna mapa, ../ - mapa iznad
 import { dbConnection } from '../index.js'
 import { appConstants } from '../config/appConstants.js'
+import { addNewProductSchema } from '../schemas/schemas.js';
 
 export const router = express.Router()
 
@@ -46,6 +47,7 @@ router.get("/create", (req, res) => {
 router.post("/create", async (req, res) => {
   // to do - validate data with zod
   const product = req.body;
+  const validateProductResult = addNewProductSchema.safeParse(product)
   const insertNewProductSql =
     `insert into product(name, price, stock, category_id, description)
     values 
@@ -56,6 +58,11 @@ router.post("/create", async (req, res) => {
     ${product.categoryId}, 
     "${product.description}"
     );`
-  const [insertProductDbResponse] = await dbConnection.query(insertNewProductSql)
-  res.render("createProduct");
+  try {
+    const [insertProductDbResponse] = await dbConnection.query(insertNewProductSql)
+    res.render("createProduct");
+  } catch (error) {
+    console.log(error)
+    res.render("server-error")
+  }
 })
