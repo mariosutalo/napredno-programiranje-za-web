@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<% locals.pageStyles.push("/styles/pages/createProduct.css") %>
+<% locals.pageStyles.push("/styles/pages/create-product.css") %>
     <%- include('./shared/head.ejs') %>
 
         <body>
@@ -10,7 +10,7 @@
                         <div class="container">
                             <h1>Create New Product</h1>
                             <p>Create new product that will be saved to db.</p>
-                            <form method="post" class="add-product-form" >
+                            <form method="post" class="add-product-form">
                                 <div class="form-input-div">
                                     <label class="form-label" for="product-name">Product name</label>
                                     <input class="form-text-input" type="text" id="product-name" name="name">
@@ -29,9 +29,13 @@
                                 </div>
                                 <div class="form-input-div">
                                     <label for="product-desc">Product Description</label>
-                                    <textarea class="form-text-area" name="description" id="product-desc" rows="4"></textarea>
+                                    <textarea class="form-text-area" name="description" id="product-desc"
+                                        rows="4"></textarea>
                                 </div>
                                 <button class="default-btn" type="submit">Add Product</button>
+                                <% if (locals.hasValidationErrors===true) { %>
+                                    <p class="validation-error-p">Form data incorrect</p>
+                                    <% } %>
                             </form>
                         </div>
                     </section>
