@@ -14,3 +14,14 @@ Express.js request query params: https://www.geeksforgeeks.org/web-tech/express-
 Javascript moduli: https://www.geeksforgeeks.org/javascript/javascript-modules/
 Http metode: https://www.w3schools.com/tags/ref_httpmethods.asp
 
+# Što je server
+Server je program/aplikacija/servis na računalu koji otvara broj porta
+te na tom broj porta prima zahtjeve klijenta/klijenata
+Npr. naša aplikacija otvara broj porta 3001, te na njemu čeka zahtjeve klijenata
+#Što je klijent
+Klijent je program/aplikacija koja se spaja na serverov broj porta i traži podatke
+Npr. boli koji web preglednik, npr. firefox. Kada upišemo localhost:3001 u web adresu.
+Klijent od servera koji sluša zahtjeve na broju porta 3001 zahtjeva našu stranicu.
+Onda server vrati: html, css i javascript za taj zahtjev 
+
+
