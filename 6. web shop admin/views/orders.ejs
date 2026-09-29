@@ -5,7 +5,44 @@
     <body>
         <%- include('./shared/header.ejs') %>
             <main>
-                <h1>Hi from orders page</h1>
+                <section class="colored-section">
+                    <div class="container">
+                        <table class="app-table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Full name</th>
+                                    <th>Status</th>
+                                    <th>Payment type</th>
+                                    <th>Order</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% orders.forEach(element=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= element.id %>
+                                        </td>
+                                        <td>
+                                            <%= element.fullName %>
+                                        </td>
+                                        <td>
+                                            <%= element.status %>
+                                        </td>
+                                        <td>
+                                            <%= element.paymentType %>
+                                        </td>
+                                        <td>
+                                            <%= element.orderDate %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+
             </main>
             <%- include('./shared/footer.ejs') %>
     </body>

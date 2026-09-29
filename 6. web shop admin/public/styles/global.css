@@ -62,3 +62,33 @@ h1, h2, h3, h4, h5,h6, p {
     min-height: 80vh;
     gap: 10px;
 }
+
+.app-table th {
+  text-align: left;
+  padding: 10px 15px;
+  font-size: var(--font-size-3);
+  color: var(--color7);
+  font-weight: 600;
+}
+
+.app-table thead tr {
+  background-color: var(--color6);
+}
+
+.app-table {
+  background-color: white;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--color5);
+  border-radius: var(--table-radius);
+  overflow: hidden;
+}
+
+.app-table tbody tr td {
+  padding: 13px 18px;
+}
+
+.colored-section {
+  background-color: var(--color6);
+  padding: calc(20rem / 16) 0;
+}

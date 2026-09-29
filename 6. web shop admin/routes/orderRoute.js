@@ -12,10 +12,9 @@ router.get("/", async (req, res) => {
       `select id, full_name as fullName, status, payment_type as paymentType, order_date as orderDate
       from user_order;`,
     );
-    res.render("orders", { pageName: "Orders" });
+    res.render("orders", { pageName: "Orders", orders: orders });
   } catch (error) {
     console.log(`Error: ${error}`)
     res.render("server-error")
   }
-
 });
