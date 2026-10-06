@@ -18,3 +18,8 @@ router.get("/", async (req, res) => {
     res.render("server-error")
   }
 });
+
+router.get("/order-details", (req, res) => {
+  res.render("order-details", { pageName: "Order details" })
+})
+

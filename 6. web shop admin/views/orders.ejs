@@ -21,7 +21,9 @@
                                 <% orders.forEach(element=> { %>
                                     <tr>
                                         <td>
-                                            <%= element.id %>
+                                            <a href="/orders/order-details?id=<%= element.id %>">
+                                                <%= element.id %>
+                                            </a>
                                         </td>
                                         <td>
                                             <%= element.fullName %>
