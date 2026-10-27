@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<% locals.pageStyles.push("/styles/pages/order-details.css") %>
-    <%- include('./shared/head.ejs') %>
-        <body>
-            <%- include('./shared/header.ejs') %>
-                <main>
-                    <section>
-                        <div class="container">
-                            <h1>Order details page</h1>
-                        </div>
-                    </section>
-                </main>
-                <%- include('./shared/footer.ejs') %>
-        </body>
-
+  <% locals.pageStyles.push("/styles/pages/order-details.css") %> <%-
+  include('./shared/head.ejs') %>
+  <body>
+    <%- include('./shared/header.ejs') %>
+    <main>
+      <section>
+        <div class="container">
+          <h2>Shipping Info</h2>
+          <p>Full name: <%= locals.orderDetails.fullName %></p>
+          <p>Street: <%= locals.orderDetails.street %></p>
+          <p>City: <%= locals.orderDetails.city %></p>
+          <p>Phone Number: <%= locals.orderDetails.phoneNumber %></p>
+          <p>Zip Code: <%= locals.orderDetails.zipCode %></p>
+          <p>Payment type: <%= locals.orderDetails.paymentType %></p>
+          <p>Status: <%= locals.orderDetails.status %></p>
+          <p>Order Date: <%= locals.orderDetails.orderDate %></p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+            <% for( let index = 0; index < locals.orderDetails.orderItems.length; index++ ) {
+              const orderItem = locals.orderDetails.orderItems[index] %>
+              <p> <%= orderItem.name %></p>
+            <% } %>
+        </div>
+      </section>
+    </main>
+    <%- include('./shared/footer.ejs') %>
+  </body>
 </html>

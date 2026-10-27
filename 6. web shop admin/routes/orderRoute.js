@@ -54,11 +54,11 @@ router.get("/order-details", async (req, res) => {
       paymentType: orderDetailsDbResult[0].paymentType,
       status: orderDetailsDbResult[0].status,
       orderDate: orderDetailsDbResult[0].orderDate,
-      items: [],
+      orderItems: [],
     };
     for (let index = 0; index < orderDetailsDbResult.length; index++) {
       const orderDetailItem = orderDetailsDbResult[index];
-      orderDetails.items.push({
+      orderDetails.orderItems.push({
         name: orderDetailItem.name,
         price: orderDetailItem.price,
         quantity: orderDetailItem.quantity,
