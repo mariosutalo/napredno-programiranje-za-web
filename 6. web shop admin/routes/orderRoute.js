@@ -55,14 +55,21 @@ router.get("/order-details", async (req, res) => {
       status: orderDetailsDbResult[0].status,
       orderDate: orderDetailsDbResult[0].orderDate,
       orderItems: [],
+      orderTotalAmount: 0
     };
     for (let index = 0; index < orderDetailsDbResult.length; index++) {
       const orderDetailItem = orderDetailsDbResult[index];
       orderDetails.orderItems.push({
+        id: orderDetailItem.id,
         name: orderDetailItem.name,
         price: orderDetailItem.price,
         quantity: orderDetailItem.quantity,
+        total: orderDetailItem.price * orderDetailItem.quantity
       });
+    }
+    for (let index = 0; index < orderDetails.orderItems.length; index++) {
+      const orderItem = orderDetails.orderItems[index]
+      orderDetails.orderTotalAmount = orderDetails.orderTotalAmount + orderItem.total
     }
     res.render("order-details", {
       pageName: "Order details",
